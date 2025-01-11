@@ -1,0 +1,24 @@
+POST http://localhost:3001/categories/add  
+Content-Type: application/json  
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjUyLCJpYXQiOjE3MzY1NjY5OTh9.w3CWjqAmi7BM91VmSJyPTNgUCqlpPbYTKyuiPvE90Mg 
+  
+{  
+    "name": "pelajaran dini hari"  
+}  
+
+### Get All Categories
+GET http://localhost:3001/categories  
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjUyLCJpYXQiOjE3MzY1NjY5OTh9.w3CWjqAmi7BM91VmSJyPTNgUCqlpPbYTKyuiPvE90Mg  
+
+### update categories
+PUT http://localhost:3001/categories/1  
+Content-Type: application/json  
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjUyLCJpYXQiOjE3MzY1NjY5OTh9.w3CWjqAmi7BM91VmSJyPTNgUCqlpPbYTKyuiPvE90Mg  
+  
+{  
+    "name": "Advanced Programming"  
+}  
+
+### Delete categories
+DELETE http://localhost:3001/categories/3  
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjUyLCJpYXQiOjE3MzY1NjY5OTh9.w3CWjqAmi7BM91VmSJyPTNgUCqlpPbYTKyuiPvE90Mg  

@@ -1,0 +1,26 @@
+### add feedback
+POST http://localhost:3001/feedbacks/add 
+Content-Type: application/json  
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjUyLCJpYXQiOjE3MzY1NjY5OTh9.w3CWjqAmi7BM91VmSJyPTNgUCqlpPbYTKyuiPvE90Mg  
+  
+{  
+    "courseId": 2,  
+    "feedback": "Great course!"  
+}  
+
+### show feedback
+GET http://localhost:3001/feedbacks/1  
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjUyLCJpYXQiOjE3MzY1NjY5OTh9.w3CWjqAmi7BM91VmSJyPTNgUCqlpPbYTKyuiPvE90Mg  
+
+### edit feedback
+PUT http://localhost:3001/feedbacks/1  
+Content-Type: application/json  
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjUyLCJpYXQiOjE3MzY1NjY5OTh9.w3CWjqAmi7BM91VmSJyPTNgUCqlpPbYTKyuiPvE90Mg  
+  
+{  
+    "feedback": "Updated feedback!"  
+}  
+
+### delete feedback
+DELETE http://localhost:3001/feedbacks/1  
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjUyLCJpYXQiOjE3MzY1NjY5OTh9.w3CWjqAmi7BM91VmSJyPTNgUCqlpPbYTKyuiPvE90Mg  

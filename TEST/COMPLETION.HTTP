@@ -1,0 +1,17 @@
+### Add Completion
+POST http://localhost:3001/completions/add 
+Content-Type: application/json  
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjUyLCJpYXQiOjE3MzY1NjY5OTh9.w3CWjqAmi7BM91VmSJyPTNgUCqlpPbYTKyuiPvE90Mg  
+  
+{  
+    "contentId": 3,  
+    "courseId": 2  
+}  
+
+### show completion
+GET http://localhost:3001/completions  
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjUyLCJpYXQiOjE3MzY1NjY5OTh9.w3CWjqAmi7BM91VmSJyPTNgUCqlpPbYTKyuiPvE90Mg  
+
+### delete completion
+DELETE http://localhost:3001/completions/3  
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjUyLCJpYXQiOjE3MzY1NjY5OTh9.w3CWjqAmi7BM91VmSJyPTNgUCqlpPbYTKyuiPvE90Mg  

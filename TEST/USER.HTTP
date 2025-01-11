@@ -1,0 +1,42 @@
+POST http://localhost:3001/users/register  
+Content-Type: application/json  
+  
+{  
+    "firstName": "hito",  
+    "lastName": "tadano",  
+    "email": "tadano_hito@example.com",  
+    "username": "hito", 
+    "password": "admin123",  
+    "phone": "0987654321",  
+    "description": "propeler",  
+    "profilePicture": "http://example.com/kim.jpg"  
+}  
+
+### Login User  
+POST http://localhost:3001/users/login  
+Content-Type: application/json  
+  
+{  
+    "email": "tadano_hito@example.com",  
+    "password": "admin123"  
+}  
+
+### get profile
+GET http://localhost:3001/users/profile/51
+ 
+
+
+### Update User
+PUT http://localhost:3001/users/update/51  
+Content-Type: application/json  
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjUxLCJpYXQiOjE3MzY1NjY1Njd9._WrC33M5jEZP4Srnk795EltsRgEae0D7JvpH7-6bmPU 
+  
+{  
+    "firstName": "hakim",  
+    "lastName": "alan",  
+    "email": "hakim_alan@example.com",  
+    "username": "kim",   
+    "phone": "0987654321",  
+    "description": "propeler",  
+    "profilePicture": "http://example.com/kim.jpg"  
+}  

@@ -1,0 +1,38 @@
+### add course
+POST http://localhost:3001/courses/add
+Content-Type: application/json  
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjUyLCJpYXQiOjE3MzY1NjY5OTh9.w3CWjqAmi7BM91VmSJyPTNgUCqlpPbYTKyuiPvE90Mg
+  
+{  
+    "name": "pelajaran tengah malam",  
+    "description": "Learn the basics of programming.",  
+    "url": "http://example.com/course-url",  
+    "site": "offline",  
+    "price": 99.99,  
+    "maxStudents": 10  
+}  
+
+### show all courses
+GET http://localhost:3001/courses  
+
+### get by id
+GET http://localhost:3001/courses/1  
+
+### update course
+PUT http://localhost:3001/courses/update/1  
+Content-Type: application/json  
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjUyLCJpYXQiOjE3MzY1NjY5OTh9.w3CWjqAmi7BM91VmSJyPTNgUCqlpPbYTKyuiPvE90Mg  
+  
+{  
+    "name": "Advanced Programming",  
+    "description": "Deep dive into programming concepts.",  
+    "url": "http://example.com/advanced-course-url",  
+    "site": "Online",  
+    "price": 149.99,  
+    "maxStudents": 25,  
+    "categoryId": 1  
+}  
+
+### delete course
+DELETE http://localhost:3001/courses/delete/101  
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjUyLCJpYXQiOjE3MzY1NjY5OTh9.w3CWjqAmi7BM91VmSJyPTNgUCqlpPbYTKyuiPvE90Mg  

@@ -1,0 +1,17 @@
+### Add Bookmark
+POST http://localhost:3001/bookmarks/add  
+Content-Type: application/json  
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjUyLCJpYXQiOjE3MzY1NjY5OTh9.w3CWjqAmi7BM91VmSJyPTNgUCqlpPbYTKyuiPvE90Mg  
+  
+{  
+    "studentId": 51,  
+    "courseId": 3 
+}  
+
+### Show Bookmark
+GET http://localhost:3001/bookmarks 
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjUyLCJpYXQiOjE3MzY1NjY5OTh9.w3CWjqAmi7BM91VmSJyPTNgUCqlpPbYTKyuiPvE90Mg  
+
+### Delete Bookmark
+DELETE http://localhost:3001/bookmarks/1  
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjUyLCJpYXQiOjE3MzY1NjY5OTh9.w3CWjqAmi7BM91VmSJyPTNgUCqlpPbYTKyuiPvE90Mg  

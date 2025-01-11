@@ -1,0 +1,159 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model User {
+  id          Int          @id @default(autoincrement())
+  firstName   String
+  lastName    String
+  email       String       @unique
+  password    String
+  username    String       @unique
+  phone       String?
+  description String?
+  profilePic  String?
+  courses     Course[]     @relation("CourseTeacher")
+  bookmarks   Bookmark[]
+  feedbacks   Feedback[]
+  completions Completion[]
+  announcements Announcement[]
+  courseMember CourseMember[]
+
+  createdAt   DateTime     @default(now())
+  updatedAt   DateTime     @updatedAt
+}
+
+model Course {
+  id          Int          @id @default(autoincrement())
+  name        String
+  description String
+  url         String
+  site        String
+  price       Float
+  maxStudents Int?
+  teacherId   Int
+  teacher     User         @relation("CourseTeacher", fields: [teacherId], references: [id])
+  announcements Announcement[]
+  feedbacks    Feedback[]
+  courseMember CourseMember[]
+  categoryId  Int?
+  category    Category?    @relation( fields: [categoryId], references: [id])
+  courseContent CourseContent[]
+
+  createdAt   DateTime     @default(now())
+  updatedAt   DateTime     @updatedAt
+
+  @@map("courses")
+  @@index([teacherId])
+  @@index([categoryId])
+}
+
+model CourseMember {
+  id            Int        @id @default(autoincrement())
+  course        Course     @relation(fields: [courseId], references: [id])
+  courseId      Int
+  user          User       @relation(fields: [userId], references: [id])
+  userId        Int
+  roles         String     @db.VarChar(10)
+  comment    Comment[]
+  
+
+  createdAt     DateTime   @default(now())
+  updatedAt     DateTime   @updatedAt
+
+  @@map("course_members")
+  @@index([courseId, userId], name: "course_user_idx")
+}
+
+model CourseContent {
+  id               Int       @id @default(autoincrement())
+  name             String    @db.VarChar(200)
+  description      String    @db.Text
+  videoUrl         String?   @db.VarChar(200)
+  course           Course    @relation(fields: [courseId], references: [id])
+  courseId         Int
+  comments         Comment[]
+  completions      Completion[]
+
+  createdAt        DateTime  @default(now())
+  updatedAt        DateTime  @updatedAt
+
+  @@map("course_contents")
+  @@index([courseId])
+}
+
+model Comment {
+  id          Int          @id @default(autoincrement())
+  content     CourseContent @relation(fields: [contentId], references: [id])
+  contentId   Int
+  user        CourseMember  @relation(fields: [userId], references: [id])
+  userId      Int
+  comment     String        @db.Text
+
+  createdAt   DateTime      @default(now())
+  updatedAt   DateTime      @updatedAt
+
+  @@map("comments")
+  @@index([contentId])
+  @@index([userId])
+}
+
+model Completion {
+  id        Int    @id @default(autoincrement())
+  studentId Int
+  contentId  Int
+  student   User    @relation(fields: [studentId], references: [id])
+  content    CourseContent  @relation(fields: [contentId], references: [id])
+
+
+  @@map("completions")
+  @@index([studentId])
+  @@index([contentId])
+}
+
+model Feedback {
+  id        Int    @id @default(autoincrement())
+  courseId  Int
+  studentId Int
+  feedback  String
+  course    Course @relation(fields: [courseId], references: [id])
+  student   User   @relation(fields: [studentId], references: [id])
+
+  @@map("feedbacks")
+  @@index([courseId])
+  @@index([studentId])
+}
+
+model Bookmark {  
+  id        Int    @id @default(autoincrement())  
+  studentId Int  
+  student   User   @relation(fields: [studentId], references: [id])  
+  courseId  Int   // Add this line to reference the Course    
+}
+
+model Announcement {  
+  id        Int      @id @default(autoincrement())  
+  courseId  Int  
+  teacherId Int  
+  course    Course   @relation(fields: [courseId], references: [id])  
+  teacher   User     @relation(fields: [teacherId], references: [id])  
+  
+  createdAt DateTime  @default(now())  
+  updatedAt DateTime  @updatedAt  
+  
+  @@map("announcements")  
+  @@index([courseId])  
+  @@index([teacherId])  
+}  
+
+model Category {
+  id        Int      @id @default(autoincrement())
+  name      String   @unique
+  courses   Course[]
+  @@map("categories")
+}

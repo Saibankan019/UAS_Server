@@ -1,0 +1,28 @@
+### add announcement
+POST http://localhost:3001/announcements/add  
+Content-Type: application/json  
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjUyLCJpYXQiOjE3MzY1NzExMDZ9.mf0pTHrk4pvOaMDCq8ZVnD0zMX3Io7GQ4c5YFaPiMnI 
+  
+{  
+    "courseId": 1,  
+    "teacherId": 1  
+}  
+
+### get all announcements
+GET http://localhost:3001/announcements  
+
+
+### update announcements
+PUT http://localhost:3001/announcements/update/2   
+Content-Type: application/json  
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjUyLCJpYXQiOjE3MzY1NzExMDZ9.mf0pTHrk4pvOaMDCq8ZVnD0zMX3Io7GQ4c5YFaPiMnI  
+  
+{  
+    "courseId": 2, // Update courseId if needed  
+    "teacherId": 1 // Update teacherId if needed  
+}  
+
+
+### delete announcements
+DELETE http://localhost:3001/announcements/delete/1 
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjUyLCJpYXQiOjE3MzY1NzExMDZ9.mf0pTHrk4pvOaMDCq8ZVnD0zMX3Io7GQ4c5YFaPiMnI   
